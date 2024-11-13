@@ -46,14 +46,23 @@ const Cart = ({ tasks, toggleCompletion, deleteTask, editTask }) => {
               }}
             >
               {/* Mark as Done and Priority in one row at the top */}
-              <div className="row mb-4 mx-3">
-                <div className="col-6"></div>
+              <div className="row mb-4 m-1">
+                <div className="col-8"></div>
                 <button
-                  className="btn btn-success col-6"
-                  onClick={() => toggleCompletion(task.id)}
+                  className="btn btn-success col-4 p-1"
+                  onClick={() => {
+                    if (task.completed || new Date(task.dueDate) < new Date())
+                      return; // Prevent click if time is over or task is already completed
+                    toggleCompletion(task.id);
+                  }}
                   style={{ height: "40px" }}
+                  disabled={new Date(task.dueDate) < new Date()} // Disable button if the due date is passed
                 >
-                  {task.completed ? "Undo" : "Mark as Done"}
+                  {new Date(task.dueDate) < new Date()
+                    ? "Time Over"
+                    : task.completed
+                    ? "Complete"
+                    : "Done"}
                 </button>
               </div>
 
@@ -61,8 +70,12 @@ const Cart = ({ tasks, toggleCompletion, deleteTask, editTask }) => {
               <div className="row mt-4">
                 <div className="col-5"></div>
                 <button
-                  className="btn btn-warning w-60 col-3"
-                  style={{ height: "35px" }}
+                  className="btn  w-60 col-3"
+                  style={{
+                    height: "35px",
+                    color: "White",
+                    background: "#444d5d",
+                  }}
                 >
                   {task.priority}
                 </button>
@@ -70,15 +83,19 @@ const Cart = ({ tasks, toggleCompletion, deleteTask, editTask }) => {
                 <div className="col-2 text-start ">
                   <button
                     className="btn btn-warning w-60"
-                    onClick={() => editTask(task)}
+                    onClick={() => {
+                        
+                      editTask(task);
+                    }}
                     style={{ height: "35px" }}
+                    disabled={task.completed || new Date(task.dueDate) < new Date()}
                   >
                     <i className="fas fa-edit"></i>
                   </button>
                 </div>
                 <div className="col-2 text-end ">
                   <button
-                    className="btn bg-light w-60 "
+                    className="btn btn-danger w-60"
                     onClick={() => deleteTask(task.id)}
                     style={{ height: "35px" }}
                   >

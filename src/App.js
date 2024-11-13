@@ -65,6 +65,8 @@ const App = () => {
     setTaskDueDate(task.dueDate);
     setTaskPriority(task.priority);
     setEditTaskId(task.id);
+    setIsFormVisible(true);
+    window.scrollTo(0, 0);
   };
 
   const resetForm = () => {
@@ -188,13 +190,13 @@ const App = () => {
             </div>
 
             {/* Task Description */}
-            <div className="col-md-6">
+            <div className="col-md-6 mb-3">
               <textarea
-                className="form-control h-100"
+                className="form-control "
                 placeholder="Task Description"
                 value={taskDescription}
                 onChange={(e) => setTaskDescription(e.target.value)}
-                style={{ minHeight: "180px" }}
+                style={{ minHeight: "150px" }}
               />
             </div>
 
@@ -252,18 +254,49 @@ const App = () => {
 
       {/* Task List (Cart Component) */}
 
-      <div className="my-2 row">
-        <button className="btn btn-success" onClick={toggleUpComing}>
-          {upComing ? (
-            <>
-              Close <i className="fas fa-chevron-up ms-1"></i>
-            </>
-          ) : (
-            <>
-              Upcoming Task <i className="fas fa-chevron-down ms-1"></i>
-            </>
-          )}
-        </button>
+      <div className="my-2 row ">
+        <div
+          style={{
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center",
+          }}
+        >
+          <button
+            className="btn"
+            onClick={toggleUpComing}
+            style={{
+              backgroundColor: "#0c0b0b",
+              color: "#0aad38",
+              fontSize: "20px", // Larger font
+              fontWeight: "bold",
+              padding: "10px 20px", // Add padding for better spacing
+              width: "fit-content", // Shrink the button's width to fit the text
+              borderRadius: "5px", // Optional: Rounded corners for aesthetics
+            }}
+          >
+            
+            {upComing ? (
+              <>
+                Close <i className="fas fa-chevron-up ms-1"></i>
+              </>
+            ) : (
+              <>
+                Upcoming Task <i className="fas fa-chevron-down ms-1"></i>
+              </>
+            )}
+          </button>
+         
+          <hr
+            style={{
+              marginTop: "10px", // Space between button and line
+              width: "100%", // Full width of the container
+              height: "2px", // Line thickness
+              backgroundColor: "#000000", // Pure black color for the line
+              border: "none",
+            }}
+          />
+        </div>
         {upComing && (
           <div>
             <Cart
@@ -277,17 +310,46 @@ const App = () => {
       </div>
 
       <div className="my-2 row ">
-        <button className="btn btn-success " onClick={toggleCompleted}>
-          {completed ? (
-            <>
-              Close <i className="fas fa-chevron-up ms-1"></i>
-            </>
-          ) : (
-            <>
-              Completed Task <i className="fas fa-chevron-down ms-1"></i>
-            </>
-          )}
-        </button>
+        <div
+          style={{
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center",
+          }}
+        >
+          <button
+            className="btn"
+            onClick={toggleCompleted}
+            style={{
+              backgroundColor: "#0c0b0b",
+              color: "#c4c9f3",
+              fontSize: "20px", // Larger font
+              fontWeight: "bold",
+              padding: "10px 20px", // Add padding for better spacing
+              width: "fit-content", // Shrink the button's width to fit the text
+              borderRadius: "5px", // Optional: Rounded corners for aesthetics
+            }}
+          >
+            {completed ? (
+              <>
+                Close <i className="fas fa-chevron-up ms-1"></i>
+              </>
+            ) : (
+              <>
+                Completed Task <i className="fas fa-chevron-down ms-1"></i>
+              </>
+            )}
+          </button>
+          <hr
+            style={{
+              marginTop: "10px", // Space between button and line
+              width: "100%", // Full width of the container
+              height: "2px", // Line thickness
+              backgroundColor: "#000000", // Pure black color for the line
+              border: "none",
+            }}
+          />
+        </div>
         {completed && (
           <Cart
             tasks={filterTasks("completed")}
@@ -299,23 +361,55 @@ const App = () => {
       </div>
 
       <div className="my-2 row">
-        <button className="btn btn-success " onClick={toggleOverdue}>
-          {overdue ? (
-            <>
-              Close <i className="fas fa-chevron-up ms-1"></i>
-            </>
-          ) : (
-            <>
-              Overdue Task <i className="fas fa-chevron-down ms-1"></i>
-            </>
-          )}
-        </button>
-        {overdue && <Cart
-        tasks={filterTasks("overdue")}
-        toggleCompletion={toggleCompletion}
-        deleteTask={deleteTask}
-        editTask={editTask} // Pass the editTask function to Cart
-      />}
+        <div
+          style={{
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center",
+          }}
+        >
+          <button
+            className="btn btn-danger"
+            onClick={toggleOverdue}
+            style={{
+              backgroundColor: "#0c0b0b",
+              color: "#b70606",
+              fontSize: "20px", // Larger font
+              fontWeight: "bold",
+              padding: "10px 20px", // Add padding for better spacing
+              width: "fit-content", // Shrink the button's width to fit the text
+              borderRadius: "5px",
+              border:"none" // Optional: Rounded corners for aesthetics
+            }}
+          >
+            {overdue ? (
+              <>
+                Close <i className="fas fa-chevron-up ms-1"></i>
+              </>
+            ) : (
+              <>
+                Overdue Task <i className="fas fa-chevron-down ms-1"></i>
+              </>
+            )}
+          </button>
+          <hr
+            style={{
+              marginTop: "10px", // Space between button and line
+              width: "100%", // Full width of the container
+              height: "2px", // Line thickness
+              backgroundColor: "#000000", // Pure black color for the line
+              border: "none",
+            }}
+          />
+        </div>
+        {overdue && (
+          <Cart
+            tasks={filterTasks("overdue")}
+            toggleCompletion={toggleCompletion}
+            deleteTask={deleteTask}
+            editTask={editTask} // Pass the editTask function to Cart
+          />
+        )}
       </div>
 
       {/* <Cart
