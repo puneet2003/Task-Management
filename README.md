@@ -52,7 +52,7 @@ Access it at [http://localhost:3000](http://localhost:3000).
 ## Screenshots
 
 ### Homepage
-    ![Homepage Screenshot](.//src/screenshot/Home.png)
+    ![Homepage Screenshot](./src/screenshot/Home.png)
 
 ### Upcoming task list you can click on done when your task in completed
     ![Upcoming task list](screenshot/UpComing_task_list.png)
