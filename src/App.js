@@ -79,24 +79,21 @@ const App = () => {
 
   const filterTasks = (status) => {
     return tasks.filter((task) => {
-      const matchesSearch = task.title
-        .toLowerCase()
-        .includes(searchTerm.toLowerCase());
+      const matchesSearch = task.title.toLowerCase().includes(searchTerm.toLowerCase()) || task.description.toLowerCase().includes(searchTerm.toLowerCase());
+
       let matchesStatus = false;
 
-      // Check for status filter (Upcoming, Completed, Overdue)
+    
       if (status === "upcoming") {
-        // For upcoming tasks, filter by not completed and task date not expired
+      
         matchesStatus = !task.completed && new Date(task.dueDate) > new Date();
       } else if (status === "completed") {
-        // For completed tasks, filter by tasks that are completed
         matchesStatus = task.completed;
       } else if (status === "overdue") {
-        // For overdue tasks, filter by tasks that are not completed and due date passed
         matchesStatus = !task.completed && new Date(task.dueDate) < new Date();
       }
 
-      // Check for priority filter
+    
       const matchesPriority =
         filterPriority === "All" || task.priority === filterPriority;
 
@@ -110,7 +107,7 @@ const App = () => {
     setIsFormVisible((prev) => !prev);
   };
 
-  const [upComing, setUpComing] = useState(false);
+  const [upComing, setUpComing] = useState(true);
   const [completed, setCompleted] = useState(false);
   const [overdue, setOverdue] = useState(false);
 
@@ -171,7 +168,8 @@ const App = () => {
               <div className="mb-3">
                 <input
                   type="date"
-                  className="form-control"
+                  className="form-control custom-date-input"
+                  placeholder="select "
                   value={taskDueDate}
                   onChange={(e) => setTaskDueDate(e.target.value)}
                 />
@@ -275,14 +273,14 @@ const App = () => {
               borderRadius: "5px", // Optional: Rounded corners for aesthetics
             }}
           >
-            
+            Upcoming Task
             {upComing ? (
               <>
-                Close <i className="fas fa-chevron-up ms-1"></i>
+                <i className="fas fa-chevron-up ms-1"></i>
               </>
             ) : (
               <>
-                Upcoming Task <i className="fas fa-chevron-down ms-1"></i>
+                 <i className="fas fa-chevron-down ms-1"></i>
               </>
             )}
           </button>
@@ -330,13 +328,14 @@ const App = () => {
               borderRadius: "5px", // Optional: Rounded corners for aesthetics
             }}
           >
+            Completed Task
             {completed ? (
               <>
-                Close <i className="fas fa-chevron-up ms-1"></i>
+                 <i className="fas fa-chevron-up ms-1"></i>
               </>
             ) : (
               <>
-                Completed Task <i className="fas fa-chevron-down ms-1"></i>
+                 <i className="fas fa-chevron-down ms-1"></i>
               </>
             )}
           </button>
@@ -382,13 +381,14 @@ const App = () => {
               border:"none" // Optional: Rounded corners for aesthetics
             }}
           >
+            Overdue Task
             {overdue ? (
               <>
-                Close <i className="fas fa-chevron-up ms-1"></i>
+                 <i className="fas fa-chevron-up ms-1"></i>
               </>
             ) : (
               <>
-                Overdue Task <i className="fas fa-chevron-down ms-1"></i>
+                 <i className="fas fa-chevron-down ms-1"></i>
               </>
             )}
           </button>

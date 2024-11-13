@@ -70,11 +70,16 @@ const Cart = ({ tasks, toggleCompletion, deleteTask, editTask }) => {
               <div className="row mt-4">
                 <div className="col-5"></div>
                 <button
-                  className="btn  w-60 col-3"
+                  className="btn w-60 col-3"
                   style={{
                     height: "35px",
-                    color: "White",
-                    background: "#444d5d",
+                    color: "white",
+                    backgroundColor:
+                      task.priority === "High"
+                        ? "#4caf50"
+                        : task.priority === "Medium"
+                        ? "#444d5d"
+                        : "red",
                   }}
                 >
                   {task.priority}
@@ -84,11 +89,23 @@ const Cart = ({ tasks, toggleCompletion, deleteTask, editTask }) => {
                   <button
                     className="btn btn-warning w-60"
                     onClick={() => {
-                        
+                        if(task.completed || new Date(task.dueDate) < new Date()) return ;
                       editTask(task);
                     }}
-                    style={{ height: "35px" }}
-                    disabled={task.completed || new Date(task.dueDate) < new Date()}
+                    style={{
+                      height: "35px",
+                      backgroundColor:
+                        task.completed || new Date(task.dueDate) < new Date()
+                          ? "red" // Disabled state with a light gray background
+                          : "#007bff", // Original background color for active state
+                      color:
+                        task.completed || new Date(task.dueDate) < new Date()
+                          ? "#a9a9a9" // Disabled text color
+                          : "white", // Active text colou
+                        
+                        cursor: (task.completed || new Date(task.dueDate) < new Date() )?"not-allowed":"",
+                    }}
+                    
                   >
                     <i className="fas fa-edit"></i>
                   </button>
