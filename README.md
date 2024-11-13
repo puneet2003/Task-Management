@@ -52,8 +52,7 @@ Access it at [http://localhost:3000](http://localhost:3000).
 ## Screenshots
 
 ### Homepage
-    ![Homepage Screenshot](./src/screenshot/Home.png)
-
+    ![./src/screenshot/Home.png](https://github.com/puneet2003/Task-Management/blob/0c8b014509d55a429c81a8d99e0eeea9332603ac/src/screenshot/Home.png)
 ### Upcoming task list you can click on done when your task in completed
     ![Upcoming task list](screenshot/UpComing_task_list.png)
 
