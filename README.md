@@ -54,23 +54,20 @@ Access it at [http://localhost:3000](http://localhost:3000).
 ### Homepage
    ![Home Screenshot](https://raw.githubusercontent.com/puneet2003/Task-Management/main/src/screenshot/Home.png)
 
-### Upcoming task list you can click on done when your task in completed
-    ![Upcoming task list](screenshot/UpComing_task_list.png)
+### Upcoming task list you can click on done when your task in completed, you can edit and also can delete a particalar task
+    ![Upcoming Task List](https://raw.githubusercontent.com/puneet2003/Task-Management/3acf3adb3960f7ea7fbce36658abc46491cd4e26/src/screenshot/UpComing_task_list.png)
+
+### using Filter and search function to list completed task 
+    ![Completed Task with Filter and Search](https://raw.githubusercontent.com/puneet2003/Task-Management/3acf3adb3960f7ea7fbce36658abc46491cd4e26/src/screenshot/completed%20task%20with%20filter%20ans%20search.png)
+
+### list of overdue task here you can't edit taks ans there mention "Time over"
+    ![Overdue Task List](https://raw.githubusercontent.com/puneet2003/Task-Management/3acf3adb3960f7ea7fbce36658abc46491cd4e26/src/screenshot/overdue%20task%20list.png)
 
 
-
-
-<!-- _Add screenshots of your app here to demonstrate the interface._ -->
-
-## Future Improvements
-
-- Persistent storage for task data across sessions.
-- Enhanced filtering (e.g., date range).
-- User authentication for personalized task management.
 
 ---
 
 ### Contact
-
+Emmail - puneetkumar322003gmail.com
 For questions or suggestions, please reach out via GitHub.
 
