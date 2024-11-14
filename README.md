@@ -58,10 +58,14 @@ Access it at [http://localhost:3000](http://localhost:3000).
    ![Upcoming Task List](https://raw.githubusercontent.com/puneet2003/Task-Management/main/src/screenshot/UpComing_task_list.png)
    
 ### using Filter and search function to list completed task 
-    ![Completed Task with Filter and Search](https://raw.githubusercontent.com/puneet2003/Task-Management/3acf3adb3960f7ea7fbce36658abc46491cd4e26/src/screenshot/completed%20task%20with%20filter%20ans%20search.png)
+   ![Completed_Task_with_Filter_and_Search](https://raw.githubusercontent.com/puneet2003/Task-Management/main/src/screenshot/completed_task_with_filter_ans_search.png)
+
+    
+
 
 ### list of overdue task here you can't edit taks ans there mention "Time over"
-    ![Overdue Task List](https://raw.githubusercontent.com/puneet2003/Task-Management/3acf3adb3960f7ea7fbce36658abc46491cd4e26/src/screenshot/overdue%20task%20list.png)
+![Overdue Task List](https://raw.githubusercontent.com/puneet2003/Task-Management/main/src/screenshot/overdue%20task%20list.png)
+
 
 
 
