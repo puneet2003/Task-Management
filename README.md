@@ -1,5 +1,9 @@
-# Task Management App
 
+# Task Management App
+## Video Demo - 
+[https://drive.google.com/file/d/1ZhorE9HICi7sJJW3GqUEj1zsP2Zu6Jon/view?usp=sharing](https://drive.google.com/file/d/1ZhorE9HICi7sJJW3GqUEj1zsP2Zu6Jon/view?usp=sharing).
+## Live Link - 
+[https://task-management-three-blue.vercel.app/](https://task-management-three-blue.vercel.app/).
 
 A highly user-friendly task management app to help users efficiently track tasks with priority and status filters, making task management intuitive and enjoyable.
 
